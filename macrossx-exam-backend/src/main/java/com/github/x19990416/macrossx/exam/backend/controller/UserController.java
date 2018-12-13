@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.github.x19990416.macrossx.exam.common.ExamException;
 import com.github.x19990416.macrossx.exam.common.Message;
 import com.github.x19990416.macrossx.exam.common.aop.Ignore;
@@ -31,6 +32,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/backend/user")
 
 @Slf4j
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserController {
   @Autowired
   IUserService userService;
