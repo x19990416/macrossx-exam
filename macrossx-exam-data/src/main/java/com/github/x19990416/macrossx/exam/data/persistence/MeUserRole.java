@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010 The macrossx-exam-data Authors
+ * Copyright (C) 2018 The macrossx-exam-data Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
@@ -11,39 +11,32 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-
 package com.github.x19990416.macrossx.exam.data.persistence;
 
+import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import lombok.Data;
 
-/**
- * 用户表
- * @author lmguo
- */
 @Data
+@Embeddable
 @Entity
-@Table(name="me_user")
-public class MeUser {
-	@Id
-	@Column(name="user_id")
-	private String userId;
-	
-	private String nickName;
-	
-	private String realName;
-	
-	private String wxOpenid;
-	
-	private String mobile;
-	
-	private Integer enabled;
-	
-	private String userName;
-	
-	private String password;
+@Table(name="me_user_role")
+public class MeUserRole implements Serializable {
+  
+  private static final long serialVersionUID = 1648667403629948665L;
+  
+  @Id
+  @Column(name="id")
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+  
+  private String userId;
+  
+  private Integer roleId;
 }

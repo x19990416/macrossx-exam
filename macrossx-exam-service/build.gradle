@@ -6,24 +6,19 @@
  * user guide available at https://docs.gradle.org/5.0/userguide/java_library_plugin.html
  */
 
-archivesBaseName = 'macrossx-exam-common'
-
+plugins {
+    // Apply the java-library plugin to add support for Java Library
+    id 'java-library'
+}
 
 repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
-    maven{
-    	url "http://maven.aliyun.com/nexus/content/groups/public/"
-    }
     jcenter()
 }
-
+ 
 dependencies {
-	compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: '2.1.1.RELEASE'
-	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.1.1.RELEASE'
-
-	compile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
-
-    
-
+	compile project(':macrossx-exam-common') 
+	compile project(':macrossx-exam-data')
+	compile project(':macrossx-exam-data-access')
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 The macrossx-exam-data-module-spring Authors
+ * Copyright (C) 2018 The macrossx-exam-service Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
@@ -11,17 +11,16 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.github.x19990416.macrossx.exam.data.repository;
+package com.github.x19990416.macrossx.exam.service;
 
+import java.util.List;
 import java.util.Optional;
-import org.springframework.data.jpa.repository.JpaRepository;
-import com.github.x19990416.macrossx.exam.data.persistence.MeUser;
+import com.github.x19990416.macrossx.exam.data.domain.Role;
 
-public interface MeUserRepository extends JpaRepository<MeUser, String>{
-  
-	public Optional<MeUser> findBywxOpenid(String wxOpenId);
-	
-	public Optional<MeUser> findByuserNameAndPassword(String username,String password);
-	
-	public Optional<MeUser> findByuserName(String username);
+public interface IRoleService {
+  public Optional<Role> find(String authority);
+  public Optional<Role> find(Integer roleId);
+  public List<Role> find();
+  public boolean addUserRole(String userId,Integer roleId);
+  public List<Role> findUserRole(String userId);
 }

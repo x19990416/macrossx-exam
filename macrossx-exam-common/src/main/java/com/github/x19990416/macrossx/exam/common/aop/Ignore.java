@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 The macrossx-exam-data-module-spring Authors
+ * Copyright (C) 2018 The macrossx-exam-common Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
@@ -11,17 +11,15 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.github.x19990416.macrossx.exam.data.repository;
+package com.github.x19990416.macrossx.exam.common.aop;
 
-import java.util.Optional;
-import org.springframework.data.jpa.repository.JpaRepository;
-import com.github.x19990416.macrossx.exam.data.persistence.MeUser;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-public interface MeUserRepository extends JpaRepository<MeUser, String>{
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.TYPE, ElementType.METHOD})
+public @interface Ignore {
   
-	public Optional<MeUser> findBywxOpenid(String wxOpenId);
-	
-	public Optional<MeUser> findByuserNameAndPassword(String username,String password);
-	
-	public Optional<MeUser> findByuserName(String username);
 }
