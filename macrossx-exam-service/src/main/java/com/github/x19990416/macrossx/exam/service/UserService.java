@@ -69,6 +69,8 @@ public class UserService implements IUserService {
        new ExamException(Constants.EXCEPTION_SERVICE_REPOSITORY_RETRIVE_ERROR,"无相关数据: "+Constants.Role.ROLE_STUDENT.name());
      }
      
+     roleService.addUserRole(meUser.getUserId(), role.get().getRoleId());
+     
      User user = new User(newMeUser);
      user.setRoles(Lists.newArrayList(role.get()));
      return user;
