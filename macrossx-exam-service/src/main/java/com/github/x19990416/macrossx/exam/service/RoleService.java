@@ -38,7 +38,7 @@ public class RoleService implements IRoleService {
   }
 
   @Override
-  public Optional<Role> find(Integer roleId) {
+  public Optional<Role> find(Long roleId) {
     return meRoleRep.findById(roleId).flatMap((e)->Optional.of(new Role(e)));
   }
   
@@ -46,7 +46,7 @@ public class RoleService implements IRoleService {
     return meRoleRep.findAll().stream().map(e->{return new Role(e);}).collect(Collectors.toList());
   }
   
-  public boolean addUserRole(String userId,Integer roleId) {
+  public boolean addUserRole(String userId,Long roleId) {
     MeUserRole meUserRole = new MeUserRole();
     meUserRole.setUserId(userId);
     meUserRole.setRoleId(roleId);
@@ -55,7 +55,7 @@ public class RoleService implements IRoleService {
   }
   
   public List<Role> findUserRole(String userId){
-    List<Integer> roleIds = Lists.newArrayList();
+    List<Long> roleIds = Lists.newArrayList();
     meUserRoleRep.findByUserId(userId).forEach(e->{
       roleIds.add(e.getRoleId());
     });

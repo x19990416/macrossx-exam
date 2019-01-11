@@ -38,5 +38,5 @@ public class MeUserRole implements Serializable {
   
   private String userId;
   
-  private Integer roleId;
+  private Long roleId;
 }

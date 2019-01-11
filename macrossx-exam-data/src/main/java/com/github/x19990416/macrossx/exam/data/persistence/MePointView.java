@@ -13,6 +13,7 @@
  */
 package com.github.x19990416.macrossx.exam.data.persistence;
 
+import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,12 +24,22 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="me_role")
-public class MeRole {
-    @Id
-    @Column(name="role_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long roleId;
-    private String authority;
-    private String comment;
+@Table(name = "me_point_view")
+public class MePointView {
+  @Id
+  @Column(name = "point_id")
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long pointId;
+  
+  private String pointName;
+  
+  private BigDecimal weight;
+  
+  private String comment;
+  
+  private String fieldName;
+  
+  private Long fieldId;
+  
+  private Integer state;
 }

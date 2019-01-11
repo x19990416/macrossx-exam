@@ -20,8 +20,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.github.x19990416.macrossx.exam.common.ExamException;
 import com.github.x19990416.macrossx.exam.common.Message;
 import com.github.x19990416.macrossx.exam.common.aop.Ignore;
@@ -31,7 +29,6 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping("/backend/user")
-
 @Slf4j
 public class UserController {
   @Autowired
@@ -43,7 +40,7 @@ public class UserController {
     
     User user= userService.login(loginVo.getUsername(), loginVo.getPassword()).orElse(null);
     
-    return user ==null?Message.error("2000001", "用户名密码错误"):Message.success(user);    
+    return user ==null?Message.error(2000001l, "用户名密码错误"):Message.success(user);    
     
   }
   
@@ -53,15 +50,12 @@ public class UserController {
     
     try {
       User user = userService.login(openid);
-      return user ==null?Message.error("2000001", "用户名密码错误"):Message.success(user);    
+      return user ==null?Message.error(2000001l, "用户名密码错误"):Message.success(user);    
     } catch (ExamException e) {
       // TODO Auto-generated catch block
       log.error("创建用户失败 [{}]-{}-{}",openid,e.getCode(),e.getMessage());
-      return Message.error("2000001", "创建用户失败");
-    }
-    
-   
-    
+      return Message.error(2000001l, "创建用户失败");
+    }      
   }
   
   @Data

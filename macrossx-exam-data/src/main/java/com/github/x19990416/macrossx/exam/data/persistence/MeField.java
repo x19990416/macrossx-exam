@@ -11,23 +11,28 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.github.x19990416.macrossx.exam.data.domain;
+package com.github.x19990416.macrossx.exam.data.persistence;
 
-import com.github.x19990416.macrossx.exam.data.persistence.MeRole;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import lombok.Data;
 
 @Data
-public class Role {
-  private Long roleId;
-  private String authority;
+@Entity
+@Table(name = "me_field")
+public class MeField {
+  @Id
+  @Column(name = "field_id")
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long fieldId;
+  
+  private String fieldName;
 
-  public Role() {
-
-  }
-
-  public Role(MeRole meRole) {
-    this.roleId = meRole.getRoleId();
-    this.authority = meRole.getAuthority();
-
-  }
+  private String comment;
+  
+  private Integer state;
 }

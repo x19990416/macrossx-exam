@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 The macrossx-exam-data Authors
+ * Copyright (C) 2019 The macrossx-exam-data Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
@@ -11,23 +11,25 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.github.x19990416.macrossx.exam.data.domain;
+package com.github.x19990416.macrossx.exam.data.persistence;
 
-import com.github.x19990416.macrossx.exam.data.persistence.MeRole;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import lombok.Data;
 
 @Data
-public class Role {
-  private Long roleId;
-  private String authority;
+@Table(name="me_question_type")
+@Entity
+public class MeQuestionType {
+  @Id
+  @Column(name = "id")
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer id;
+  private String name;
+  private Integer subjective;
 
-  public Role() {
-
-  }
-
-  public Role(MeRole meRole) {
-    this.roleId = meRole.getRoleId();
-    this.authority = meRole.getAuthority();
-
-  }
 }

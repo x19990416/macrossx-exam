@@ -13,6 +13,8 @@
  */
 package com.github.x19990416.macrossx.exam.data.persistence;
 
+import java.math.BigDecimal;
+import java.sql.Timestamp;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,15 +22,42 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.Data;
-
 @Data
+@Table(name="me_question")
 @Entity
-@Table(name="me_role")
-public class MeRole {
-    @Id
-    @Column(name="role_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long roleId;
-    private String authority;
-    private String comment;
+public class MeQuestion{
+  @Id
+  @Column(name = "question_id")
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long quesitonId;
+
+  private String name;
+  
+  private String content;
+  
+  private String answer;
+  
+  private Integer questionType;
+  
+  private Integer duration;
+  
+  private BigDecimal score;
+  
+  private Long groupId;
+  
+  private Long exposeTimes;
+  
+  private Long rightTimes;
+  
+  private Long wrongTimes;
+  
+  private String analysis;
+  
+  private String reference;
+  
+  private String keywords;
+  
+  private Timestamp createTime  = new Timestamp(System.currentTimeMillis());
+ 
+  private Integer status;  
 }

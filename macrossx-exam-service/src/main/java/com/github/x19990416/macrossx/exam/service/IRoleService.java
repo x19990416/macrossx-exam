@@ -19,8 +19,8 @@ import com.github.x19990416.macrossx.exam.data.domain.Role;
 
 public interface IRoleService {
   public Optional<Role> find(String authority);
-  public Optional<Role> find(Integer roleId);
+  public Optional<Role> find(Long roleId);
   public List<Role> find();
-  public boolean addUserRole(String userId,Integer roleId);
+  public boolean addUserRole(String userId,Long roleId);
   public List<Role> findUserRole(String userId);
 }
