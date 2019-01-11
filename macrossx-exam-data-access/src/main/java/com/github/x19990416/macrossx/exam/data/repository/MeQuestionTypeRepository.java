@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 The macrossx-exam-data-access Authors
+ * Copyright (C) 2019 The macrossx-exam-data-access Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
@@ -13,11 +13,9 @@
  */
 package com.github.x19990416.macrossx.exam.data.repository;
 
-import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.github.x19990416.macrossx.exam.data.persistence.MeRole;
+import com.github.x19990416.macrossx.exam.data.persistence.MeQuestionType;
 
-public interface MeRoleRepository extends JpaRepository<MeRole, Long> {
-  
-  public Optional<MeRole> findByAuthority(String authority);
+public interface MeQuestionTypeRepository extends JpaRepository<MeQuestionType , Long>{
+
 }

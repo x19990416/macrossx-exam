@@ -13,11 +13,10 @@
  */
 package com.github.x19990416.macrossx.exam.data.repository;
 
-import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.github.x19990416.macrossx.exam.data.persistence.MeRole;
+import com.github.x19990416.macrossx.exam.data.persistence.MeQuestionView;
 
-public interface MeRoleRepository extends JpaRepository<MeRole, Long> {
+public interface MeQuestionViewRepository extends JpaRepository<MeQuestionView, Long> {
   
-  public Optional<MeRole> findByAuthority(String authority);
+  
 }
