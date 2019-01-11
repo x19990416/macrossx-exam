@@ -14,7 +14,6 @@
 package com.github.x19990416.macrossx.exam.backend.controller;
 
 import java.util.List;
-import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.RequestBody;
