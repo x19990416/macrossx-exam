@@ -22,10 +22,15 @@ public class ExamException extends Exception{
 
   private static final long serialVersionUID = 4681736264899232760L;
   
-  private String code;
+  private Long code;
   
-  public ExamException(String code,String message) {
+  public ExamException(Long code,String message) {
     super(message);
+    this.code = code;
+  }
+  
+  public ExamException(Long code,Exception e) {
+    super(e);
     this.code = code;
   }
 

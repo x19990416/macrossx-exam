@@ -13,27 +13,20 @@
  */
 package com.github.x19990416.macrossx.exam.common;
 
-public class Constants {
-  public static enum Role {
-    ROLE_ADMIN, ROLE_TEACHER, ROLE_STUDENT;
-  }
-  public static Long SUCCESS_CODE=100000l;
+import lombok.Data;
+import lombok.ToString;
+
+@Data
+@ToString(callSuper=true)
+public abstract class RequestPage {
+  private Integer pageSize;
+  private Integer pageNo;
   
-  /**
-   * 数据库添加数据失败
-   */
-  public static Long EXCEPTION_SERVICE_REPOSITORY_CREATE_ERROR =2000001l;
-  /**
-   * 数据库读取数据失败
-   */
-  public static Long EXCEPTION_SERVICE_REPOSITORY_RETRIVE_ERROR =2000002l;
-  /**
-   * 数据库更新数据失败
-   */
-  public static Long EXCEPTION_SERVICE_REPOSITORY_UPDATE_ERROR =2000003l;
-  /**
-   * 数据库读删除据失败
-   */
-  public static Long EXCEPTION_SERVICE_REPOSITORY_DELETE_ERROR =2000004l;
+  public void checkDefault() {
+    if(pageSize==null || pageNo ==null) {
+      pageSize =10 ;
+      pageNo =0;
+    }
+  }
   
 }
