@@ -28,7 +28,6 @@ import com.github.x19990416.macrossx.exam.data.domain.Point;
 import com.github.x19990416.macrossx.exam.data.domain.Question;
 import com.github.x19990416.macrossx.exam.data.domain.QuestionType;
 import com.github.x19990416.macrossx.exam.service.IQuestionService;
-import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
