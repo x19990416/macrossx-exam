@@ -8,21 +8,26 @@ allprojects{
 	group = 'com.github.x19990416.macrossx.exam'
 	version = '1.0'
 }
-//apply plugin: 'org.springframework.boot'
-//	buildscript{
-//		repositories {
-//        	maven { url 'https://repo.spring.io/libs-milestone' }
-//  		}
-//		
-//		dependencies{
-//			classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.1.1.RELEASE'
-//		}
-//	}
+
+buildscript{
+	repositories {
+    // Use jcenter for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    maven{
+    	url "http://maven.aliyun.com/nexus/content/groups/public/"
+    	url "https://plugins.gradle.org/m2/"
+    }
+    jcenter()
+    }
+    dependencies {
+    classpath "io.franzbecker:gradle-lombok:1.14"
+  }
+}
 
 subprojects{
 	apply plugin: 'java'
 	apply plugin: 'eclipse'
-//	
+    apply plugin: "io.franzbecker.gradle-lombok"
 	
 	sourceCompatibility = 1.8
 	targetCompatibility = 1.8
@@ -43,16 +48,17 @@ subprojects{
     }
 
     configurations {
-        // 鎵�鏈夐渶瑕佸拷鐣ョ殑鍖呭畾涔夊湪姝�
     	//all*.exclude group: 'commons-httpclient'
         //all*.exclude group: 'commons-logging'
         //all*.exclude group: 'commons-beanutils', module: 'commons-beanutils'
     }
 
     dependencies {
-    	compile group: 'org.projectlombok', name: 'lombok', version: '1.18.4'
+
+		compile group: 'org.projectlombok', name: 'lombok', version: '1.18.4'
+
     	compile group: 'com.google.guava', name: 'guava', version: '27.0.1-jre'
-    	
+
 		
 
     }

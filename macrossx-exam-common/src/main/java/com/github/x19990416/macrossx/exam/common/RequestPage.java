@@ -29,4 +29,11 @@ public abstract class RequestPage {
     }
   }
   
+  public void checkAll() {
+    if(pageSize==null || pageNo ==null) {
+      pageSize = Integer.MAX_VALUE;
+      pageNo = 0;
+    }
+  }
+  
 }
